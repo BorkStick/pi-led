@@ -1,0 +1,33 @@
+#!/usr/bin/env python3
+import board
+import neopixel
+import argparse
+pixels = neopixel.NeoPixel(board.D18, 1)
+
+# Get RGB colors from command line arguments.
+parser = argparse.ArgumentParser(description = 'Add a little color to your life.')
+parser.add_argument('color', metavar='color', type=str, nargs=1,
+                   help='A color value of red, green, blue, cyan, magenta, yellow, purple white, or off.')
+args = parser.parse_args()    
+
+pixels[0] = (0, 0, 0)
+
+# Set colors.
+if args.color[0] == 'red':
+      pixels[0] = (63, 0, 0)
+elif args.color[0] == 'green':
+      pixels[0] = (0, 63, 0)
+elif args.color[0] == 'blue':
+  pixels[0] = (0, 0, 63)
+elif args.color[0] == 'cyan':
+  pixels[0] = (0, 63, 63)  
+elif args.color[0] == 'magenta':
+  pixels[0] = (63, 0, 63)    
+elif args.color[0] == 'yellow':
+  pixels[0] = (63, 63, 0)   
+elif args.color[0] == 'purple':
+  pixels[0] = (75, 0, 130)   
+elif args.color[0] == 'orange':
+  pixels[0] = (63, 42, 0)      
+elif args.color[0] == 'white':
+  pixels[0] = (63, 63, 63)    
